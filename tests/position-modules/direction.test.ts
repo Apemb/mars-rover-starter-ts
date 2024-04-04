@@ -1,8 +1,8 @@
 import {
   Direction,
   directionFromChar
-} from '../../../lib/position-modules/direction'
-import {expect} from '../../test-helper'
+} from '../.././src/position-modules/direction'
+import { expect } from '../test-helper'
 
 describe('Unit | Class | PositionModules | Direction', () => {
 

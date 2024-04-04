@@ -1,15 +1,10 @@
 process.env.NODE_ENV = 'test'
 
-import chai from 'chai'
+import { expect as chaiExpect } from 'chai'
 import sinonModule from 'sinon'
-import sinonChai from 'sinon-chai'
-import chaiAsPromised from 'chai-as-promised'
-
-chai.use(sinonChai)
-chai.use(chaiAsPromised)
 
 export const sinon = sinonModule
-export const expect = chai.expect
+export const expect = chaiExpect
 
 afterEach(() => {
   sinon.restore()

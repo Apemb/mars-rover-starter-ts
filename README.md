@@ -106,7 +106,7 @@ npm install
 
 ### Writing code
 
-When you'll write some code, you must place source code files in the directory `lib` and test files in the directory `test`.
+When you'll write some code, you must place source code files in the directory `src` and test files in the directory `tests`.
 
 ### Tools
 - Testing framework: [Mocha](https://mochajs.org/)
@@ -124,7 +124,7 @@ npm test
 Automatically re-run all tests once whenever you change (save) a file:
 
 ```shell
-npm run test:watch
+npm run test
 ```
 
 ### Run CLI Rover

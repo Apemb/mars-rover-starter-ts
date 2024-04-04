@@ -1,7 +1,9 @@
-import {Position} from '../../../lib/position-modules/position'
-import {Direction} from '../../../lib/position-modules/direction'
-import {PositionModule} from '../../../lib/position-modules/position-module'
-import {expect} from '../../test-helper'
+import { Position } from '../.././src/position-modules/position'
+import { Direction } from '../.././src/position-modules/direction'
+import {
+  PositionModule
+} from '../.././src/position-modules/position-module'
+import { expect } from '../test-helper'
 
 describe('Unit | Class | PositionModules | Position Module', () => {
 

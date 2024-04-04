@@ -1,4 +1,4 @@
-import {Direction} from './direction'
+import {Direction} from './direction.js'
 
 export class Position {
   private _x: number

@@ -1,5 +1,5 @@
-import {Direction} from '../position-modules/direction'
-import {Position} from '../position-modules/position'
+import {Direction} from '../position-modules/direction.js'
+import {Position} from '../position-modules/position.js'
 
 export class MapModule {
   generateMap(position: Position) {

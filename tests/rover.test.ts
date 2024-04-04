@@ -1,10 +1,10 @@
-import {PositionModule} from '../../lib/position-modules/position-module'
-import {MapModule} from '../../lib/map-modules/map-module'
-import {Console, Rover, RoverDependencies} from '../../lib/rover'
-import {expect, sinon} from '../test-helper'
-import {Position} from '../../lib/position-modules/position'
-import {Direction} from '../../lib/position-modules/direction'
-import {SinonStubbedInstance} from 'sinon'
+import { PositionModule } from '.././src/position-modules/position-module'
+import { MapModule } from '.././src/map-modules/map-module'
+import { Console, Rover, RoverDependencies } from '.././src/rover'
+import { expect, sinon } from './test-helper'
+import { Position } from '.././src/position-modules/position'
+import { Direction } from '.././src/position-modules/direction'
+import { SinonStubbedInstance } from 'sinon'
 
 class DummyConsole implements Console {
   log(message: string) {
@@ -54,7 +54,7 @@ describe('Unit | Class | Rover', () => {
         new Rover(initialPosition, roverParts, dependencies)
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       }
@@ -88,7 +88,7 @@ describe('Unit | Class | Rover', () => {
         new Rover(initialPosition, roverParts, dependencies)
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       }
@@ -122,7 +122,7 @@ describe('Unit | Class | Rover', () => {
         new Rover(initialPosition, roverParts, dependencies)
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       }
@@ -133,8 +133,8 @@ describe('Unit | Class | Rover', () => {
 
     describe('moving forward', () => {
 
-      it('should dispaly the rover moving forward when command is f' +
-        ' and direction is N', () => {
+      it('should display the rover moving forward when command is f' +
+        ' and direction is N', async () => {
         // Given
         const expectedFirstCall = [
           'Move: f',
@@ -160,16 +160,16 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['f'])
+        await rover.run(['f'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
 
-      it('should dispaly the rover moving forward when command is f' +
-        ' and direction is E', () => {
+      it('should display the rover moving forward when command is f' +
+        ' and direction is E', async () => {
         // Given
         const expectedFirstCall = [
           'Move: f',
@@ -195,16 +195,16 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['f'])
+        await rover.run(['f'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
 
-      it('should dispaly the rover moving forward when command is f' +
-        ' and direction is S', () => {
+      it('should display the rover moving forward when command is f' +
+        ' and direction is S', async () => {
         // Given
         const expectedFirstCall = [
           'Move: f',
@@ -229,16 +229,16 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['f'])
+        await rover.run(['f'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
 
-      it('should dispaly the rover moving forward when command is f' +
-        ' and direction is W', () => {
+      it('should display the rover moving forward when command is f' +
+        ' and direction is W', async () => {
         // Given
         const expectedFirstCall = [
           'Move: f',
@@ -263,10 +263,10 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['f'])
+        await rover.run(['f'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
@@ -274,8 +274,8 @@ describe('Unit | Class | Rover', () => {
 
     describe('moving backward', () => {
 
-      it('should dispaly the rover moving backward when command is b' +
-        ' and direction is N', () => {
+      it('should display the rover moving backward when command is b' +
+        ' and direction is N', async () => {
         // Given
         const expectedFirstCall = [
           'Move: b',
@@ -300,16 +300,16 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['b'])
+        await rover.run(['b'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
 
-      it('should dispaly the rover moving backward when command is b' +
-        ' and direction is E', () => {
+      it('should display the rover moving backward when command is b' +
+        ' and direction is E', async () => {
         // Given
         const expectedFirstCall = [
           'Move: b',
@@ -334,16 +334,16 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['b'])
+        await rover.run(['b'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
 
-      it('should dispaly the rover moving backward when command is b' +
-        ' and direction is S', () => {
+      it('should display the rover moving backward when command is b' +
+        ' and direction is S', async () => {
         // Given
         const expectedFirstCall = [
           'Move: b',
@@ -368,16 +368,16 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['b'])
+        await rover.run(['b'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
 
-      it('should dispaly the rover moving backward when command is b' +
-        ' and direction is W', () => {
+      it('should display the rover moving backward when command is b' +
+        ' and direction is W', async () => {
         // Given
         const expectedFirstCall = [
           'Move: b',
@@ -402,10 +402,10 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['b'])
+        await rover.run(['b'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
@@ -413,8 +413,8 @@ describe('Unit | Class | Rover', () => {
 
     describe('turning right', () => {
 
-      it('should dispaly the rover turning right when command is r' +
-        ' and direction is N', () => {
+      it('should display the rover turning right when command is r' +
+        ' and direction is N', async () => {
         // Given
         const expectedFirstCall = [
           'Move: r',
@@ -439,16 +439,16 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['r'])
+        await rover.run(['r'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
 
-      it('should dispaly the rover turning right when command is r' +
-        ' and direction is E', () => {
+      it('should display the rover turning right when command is r' +
+        ' and direction is E', async () => {
         // Given
         const expectedFirstCall = [
           'Move: r',
@@ -473,16 +473,16 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['r'])
+        await rover.run(['r'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
 
-      it('should dispaly the rover turning right when command is r' +
-        ' and direction is S', () => {
+      it('should display the rover turning right when command is r' +
+        ' and direction is S', async () => {
         // Given
         const expectedFirstCall = [
           'Move: r',
@@ -507,16 +507,16 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['r'])
+        await rover.run(['r'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
 
-      it('should dispaly the rover turning right when command is r' +
-        ' and direction is W', () => {
+      it('should display the rover turning right when command is r' +
+        ' and direction is W', async () => {
         // Given
         const expectedFirstCall = [
           'Move: r',
@@ -541,10 +541,10 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['r'])
+        await rover.run(['r'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
@@ -552,8 +552,8 @@ describe('Unit | Class | Rover', () => {
 
     describe('turning left', () => {
 
-      it('should dispaly the rover turning left when command is l' +
-        ' and direction is N', () => {
+      it('should display the rover turning left when command is l' +
+        ' and direction is N', async () => {
         // Given
         const expectedFirstCall = [
           'Move: l',
@@ -578,16 +578,16 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['l'])
+        await rover.run(['l'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
 
-      it('should dispaly the rover turning left when command is l' +
-        ' and direction is E', () => {
+      it('should display the rover turning left when command is l' +
+        ' and direction is E', async () => {
         // Given
         const expectedFirstCall = [
           'Move: l',
@@ -612,16 +612,16 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['l'])
+        await rover.run(['l'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
 
-      it('should dispaly the rover turning left when command is l' +
-        ' and direction is S', () => {
+      it('should display the rover turning left when command is l' +
+        ' and direction is S', async () => {
         // Given
         const expectedFirstCall = [
           'Move: l',
@@ -646,16 +646,16 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['l'])
+        await rover.run(['l'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
 
-      it('should dispaly the rover turning left when command is l' +
-        ' and direction is W', () => {
+      it('should display the rover turning left when command is l' +
+        ' and direction is W', async () => {
         // Given
         const expectedFirstCall = [
           'Move: l',
@@ -680,10 +680,10 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['l'])
+        await rover.run(['l'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
@@ -691,8 +691,8 @@ describe('Unit | Class | Rover', () => {
 
     describe('crossing the Northern border', () => {
 
-      it('should dispaly the rover crossing to the south' +
-        ' when crossing in forward direction', () => {
+      it('should display the rover crossing to the south' +
+        ' when crossing in forward direction', async () => {
         // Given
         const expectedFirstCall = [
           'Move: f',
@@ -717,16 +717,16 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['f'])
+        await rover.run(['f'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
 
-      it('should dispaly the rover crossing to the south' +
-        ' when crossing in backward direction', () => {
+      it('should display the rover crossing to the south' +
+        ' when crossing in backward direction', async () => {
         // Given
         const expectedFirstCall = [
           'Move: b',
@@ -751,10 +751,10 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['b'])
+        await rover.run(['b'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
@@ -762,8 +762,8 @@ describe('Unit | Class | Rover', () => {
 
     describe('crossing the Southern border', () => {
 
-      it('should dispaly the rover crossing to the north' +
-        ' when crossing in forward direction', () => {
+      it('should display the rover crossing to the north' +
+        ' when crossing in forward direction', async () => {
         // Given
         const expectedFirstCall = [
           'Move: f',
@@ -788,16 +788,16 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['f'])
+        await rover.run(['f'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
 
-      it('should dispaly the rover crossing to the north' +
-        ' when crossing in backward direction', () => {
+      it('should display the rover crossing to the north' +
+        ' when crossing in backward direction', async () => {
         // Given
         const expectedFirstCall = [
           'Move: b',
@@ -822,10 +822,10 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['b'])
+        await rover.run(['b'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
@@ -833,8 +833,8 @@ describe('Unit | Class | Rover', () => {
 
     describe('crossing the Eastern border', () => {
 
-      it('should dispaly the rover crossing to the west' +
-        ' when crossing in forward direction', () => {
+      it('should display the rover crossing to the west' +
+        ' when crossing in forward direction', async () => {
         // Given
         const expectedFirstCall = [
           'Move: f',
@@ -859,16 +859,16 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['f'])
+        await rover.run(['f'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
 
-      it('should dispaly the rover crossing to the west' +
-        ' when crossing in backward direction', () => {
+      it('should display the rover crossing to the west' +
+        ' when crossing in backward direction', async () => {
         // Given
         const expectedFirstCall = [
           'Move: b',
@@ -893,10 +893,10 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['b'])
+        await rover.run(['b'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
@@ -904,8 +904,8 @@ describe('Unit | Class | Rover', () => {
 
     describe('crossing the Western border', () => {
 
-      it('should dispaly the rover crossing to the east' +
-        ' when crossing in forward direction', () => {
+      it('should display the rover crossing to the east' +
+        ' when crossing in forward direction', async () => {
         // Given
         const expectedFirstCall = [
           'Move: f',
@@ -930,16 +930,16 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['f'])
+        await rover.run(['f'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
 
-      it('should dispaly the rover crossing to the east' +
-        ' when crossing in backward direction', () => {
+      it('should display the rover crossing to the east' +
+        ' when crossing in backward direction', async () => {
         // Given
         const expectedFirstCall = [
           'Move: b',
@@ -964,10 +964,10 @@ describe('Unit | Class | Rover', () => {
         console.log.reset()
 
         // When
-        rover.run(['b'])
+        await rover.run(['b'])
 
         // Then
-        expect(console.log).to.have.been.calledTwice
+        sinon.assert.calledTwice(console.log)
         expect(console.log.firstCall.args).to.deep.equal(expectedFirstCall)
         expect(console.log.secondCall.args).to.deep.equal(expectedSecondCall)
       })
@@ -975,7 +975,7 @@ describe('Unit | Class | Rover', () => {
 
     describe('running multiple commands', () => {
 
-      it('should dispaly the rover exectuting mutiple commands', async () => {
+      it('should display the rover executing multiple commands', async () => {
         // Given
         const expectedSecondCall = [
           '   0 1 2 3 4 5 6 7 8 9\n' +

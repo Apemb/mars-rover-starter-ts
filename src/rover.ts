@@ -1,6 +1,6 @@
-import {Position} from './position-modules/position'
-import {MapModule} from './map-modules/map-module'
-import {PositionModule} from './position-modules/position-module'
+import {Position} from './position-modules/position.js'
+import {MapModule} from './map-modules/map-module.js'
+import {PositionModule} from './position-modules/position-module.js'
 
 const MOVE_TIME = process.env.NODE_ENV === 'test' ? 0 : 1000
 

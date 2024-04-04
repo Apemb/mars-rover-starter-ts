@@ -1,7 +1,7 @@
-import {Position} from '../../../lib/position-modules/position'
-import {Direction} from '../../../lib/position-modules/direction'
-import {MapModule} from '../../../lib/map-modules/map-module'
-import {expect} from '../../test-helper'
+import { Position } from '../.././src/position-modules/position'
+import { Direction } from '../.././src/position-modules/direction'
+import { MapModule } from '../.././src/map-modules/map-module'
+import { expect } from '../test-helper'
 
 describe('Unit | Class | MapModules | Map Module', () => {
 

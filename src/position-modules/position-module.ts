@@ -1,5 +1,5 @@
-import {Position} from './position'
-import {Direction} from './direction'
+import {Position} from './position.js'
+import {Direction} from './direction.js'
 
 function positiveModulo10(number: number) {
   return ((number % 10) + 10) % 10
